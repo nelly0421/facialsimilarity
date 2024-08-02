@@ -128,10 +128,10 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = '/ssd2/nelly/face_similarity/media'  # 修改後用戶上傳的照片將保存在這個目錄下
+MEDIA_ROOT = '/face_similarity/media'  # 修改後用戶上傳的照片將保存在這個目錄下
 
 # Custom image directory for comparison
-IMAGE_ROOT = '/ssd2/nelly/face_similarity/images'  # 原始資料庫位置
+IMAGE_ROOT = '/face_similarity/images'  # 原始資料庫位置
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
