@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Similarity Finder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Softer blue gradient */
+            color: #333; /* Darker text for better readability */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background: #fff; /* Solid white background */
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            width: 450px; /* Slightly larger width */
+            backdrop-filter: blur(5px); /* Reduced blur for less intense effect */
+        }
+        input[type="file"] {
+            padding: 12px;
+            margin: 20px 0;
+            width: calc(100% - 24px);
+        }
+        button {
+            background-color: #4a90e2; /* Softer blue for the button */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357abD; /* Darker blue on hover */
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555; /* Darker grey for text */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Face Similarity Finder</h1>
+        <p>Upload your photo to find the top similar faces!</p>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" required>
+            <button type="submit">Upload and Find Similar Faces</button>
+        </form>
+    </div>
+</body>
+</html>

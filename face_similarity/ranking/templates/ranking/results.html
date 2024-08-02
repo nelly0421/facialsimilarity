@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top 5 Similar Faces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            max-width: 960px;
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px;
+            text-align: center;
+        }
+        .faces-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .face {
+            width: calc(33% - 20px);
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .face img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .details {
+            padding: 10px;
+        }
+        .rank {
+            font-size: 18px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 5px;
+        }
+        .name {
+            font-size: 16px;
+            color: #333;
+            margin-top: -5px;
+            padding: 0 10px;
+        }
+        .similarity {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .back-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% load custom_filters %}
+    <div class="container">
+        <h1>Top 5 Similar Faces</h1>
+        <div class="faces-grid">
+            {% for item in top_5 %}
+            <div class="face">
+                <img src="{{ item.image_url }}" alt="Similar Face">
+                <div class="details">
+                    <div class="rank">Rank #{{ item.rank }}</div>
+                    <div class="name">{{ item.face.name|remove_extension }}</div>
+                    <div class="similarity">Similarity: {{ item.similarity }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="back-button" onclick="window.location.href='/'">Back to upload</button>
+    </div>
+</body>
+</html>

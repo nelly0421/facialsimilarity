@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Face</title>
+</head>
+<body>
+    <h1>Upload Face</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" required><br><br>
+        <button type="submit">Upload</button>
+    </form>
+    {% if uploaded_file_url %}
+        <p>File uploaded to: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+    {% endif %}
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'find_similar_faces' %}">Find Similar Faces</a>
+</body>
+</html>
