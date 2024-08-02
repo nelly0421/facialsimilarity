@@ -39,8 +39,8 @@ def detect_and_crop_face(image_path):
     return cropped_face
 
 # 圖片目錄
-image_dir = '/ssd2/nelly/face_similarity/images'
-processed_dir = '/ssd2/nelly/face_similarity/processed_images'
+image_dir = '/face_similarity/images'
+processed_dir = '/face_similarity/processed_images'
 
 # 創建保存裁剪後人臉圖像的目錄
 if not os.path.exists(processed_dir):
