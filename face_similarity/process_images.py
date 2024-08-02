@@ -34,7 +34,7 @@ def crop_and_extract_features(image_path):
         return None
 
 def process_images():
-    image_dir = '/ssd2/nelly/face_similarity/images'
+    image_dir = '/face_similarity/images'
     for image_name in os.listdir(image_dir):
         image_path = os.path.join(image_dir, image_name)
         if not image_name.lower().endswith(('.png', '.jpg', '.jpeg')):
